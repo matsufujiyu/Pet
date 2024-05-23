@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.PetMapper">
+    <select id="findById" resultType="com.example.mapper.PetMapper">
+        SELECT * FROM pets WHERE id  = #{id}
+    </select>
+    <select id="findAll" resultType="com.example.mapper.PetMapper">
+        SELECT * FROM pets ORDER BY id
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO pets (name) VALUES (#{pets.name})
+    </insert>
+    <update id="update">
+        UPDATE pets
+        SET name = #{pets.name}
+        WHERE
+            id = #{pets.id}
+    </update>
+    <delete id="delete">
+        DELETE FROM pets WHERE id = #{id}
+       </delete>
+</mapper>
